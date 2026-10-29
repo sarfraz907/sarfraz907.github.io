@@ -1,0 +1,840 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sarfraz Ahmad | QA Automation Engineer</title>
+<meta name="description" content="Sarfraz Ahmad, QA Automation Engineer with 3+ years in fintech. Playwright + TypeScript, Maestro and Appium mobile automation, API testing, SQL, and AI-assisted testing.">
+<meta property="og:title" content="Sarfraz Ahmad | QA Automation Engineer">
+<meta property="og:description" content="13+ projects · 20+ production releases · 250+ automated web tests · Maestro mobile automation · AI-assisted QA.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%2310b981'/><path d='M9 16.5l4.5 4.5L23 11.5' stroke='white' stroke-width='3.2' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f7f8fa; --bg-alt:#eef1f5; --card:#ffffff; --text:#0f172a; --muted:#526075;
+  --line:#dde3ea; --accent:#059669; --accent-soft:#d1fae5; --accent-text:#065f46;
+  --violet:#7c3aed; --violet-soft:#ede9fe; --blue:#2563eb; --blue-soft:#dbeafe; --amber:#b45309; --amber-soft:#fef3c7;
+  --shadow:0 1px 2px rgba(15,23,42,.05),0 8px 24px rgba(15,23,42,.06);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0b1020; --bg-alt:#0f1629; --card:#131b30; --text:#e6eaf2; --muted:#94a3b8;
+    --line:#22304b; --accent:#34d399; --accent-soft:rgba(52,211,153,.12); --accent-text:#6ee7b7;
+    --violet:#a78bfa; --violet-soft:rgba(167,139,250,.13); --blue:#60a5fa; --blue-soft:rgba(96,165,250,.13); --amber:#fbbf24; --amber-soft:rgba(251,191,36,.12);
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0b1020; --bg-alt:#0f1629; --card:#131b30; --text:#e6eaf2; --muted:#94a3b8;
+  --line:#22304b; --accent:#34d399; --accent-soft:rgba(52,211,153,.12); --accent-text:#6ee7b7;
+  --violet:#a78bfa; --violet-soft:rgba(167,139,250,.13); --blue:#60a5fa; --blue-soft:rgba(96,165,250,.13); --amber:#fbbf24; --amber-soft:rgba(251,191,36,.12);
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+strong{font-weight:600;color:var(--text)}
+.mono{font-family:"JetBrains Mono",ui-monospace,monospace}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+
+/* nav */
+header{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:60px;gap:12px}
+.logo{font-weight:800;text-decoration:none;letter-spacing:-.02em;display:flex;align-items:center;gap:8px;white-space:nowrap}
+.logo .dot{width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px var(--accent-soft)}
+.nav ul{display:flex;list-style:none;gap:20px}
+.nav ul a{text-decoration:none;color:var(--muted);font-size:.9rem;font-weight:500}
+.nav ul a:hover{color:var(--text)}
+.icon-btn{background:var(--card);border:1px solid var(--line);color:var(--text);width:38px;height:38px;border-radius:10px;cursor:pointer;display:grid;place-items:center;flex-shrink:0}
+.icon-btn svg{width:18px;height:18px}
+@media (max-width:900px){.nav ul{display:none}}
+
+/* hero */
+.hero{padding:76px 0 40px}
+.hero-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:44px;align-items:center}
+.badge{display:inline-flex;align-items:center;gap:8px;background:var(--accent-soft);color:var(--accent-text);padding:6px 12px;border-radius:999px;font-size:.82rem;font-weight:600}
+.badge .pulse{width:8px;height:8px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--accent) 60%,transparent)}70%{box-shadow:0 0 0 8px transparent}100%{box-shadow:0 0 0 0 transparent}}
+h1{font-size:clamp(2.2rem,5.2vw,3.5rem);line-height:1.08;letter-spacing:-.035em;margin:18px 0 12px;font-weight:800}
+h1 .accent{color:var(--accent)}
+.role{font-size:1.08rem;color:var(--muted);font-weight:500}
+.lead{margin-top:16px;color:var(--muted);max-width:580px;font-size:1.01rem}
+.stack-line{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.stack-line span{font-size:.78rem;font-weight:600;padding:5px 10px;border-radius:8px;background:var(--card);border:1px solid var(--line)}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border-radius:10px;font-weight:600;text-decoration:none;font-size:.95rem;border:1px solid var(--line);background:var(--card);transition:transform .15s;color:var(--text)}
+.btn:hover{transform:translateY(-2px)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#04241a}
+.btn svg{width:17px;height:17px}
+
+/* contact list */
+.contact-list{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;text-align:left}
+.contact-item{display:flex;align-items:center;gap:12px;padding:14px 18px 14px 14px;border-radius:14px;background:var(--card);border:1px solid var(--line);text-decoration:none;box-shadow:var(--shadow);transition:transform .15s,border-color .15s;min-width:0}
+.contact-item:hover,.contact-item:focus-visible{transform:translateY(-3px)}
+.ci-icon{width:42px;height:42px;border-radius:11px;display:grid;place-items:center;color:#fff;flex-shrink:0}
+.ci-icon svg{width:20px;height:20px}
+.ci-text{display:flex;flex-direction:column;min-width:0}
+.ci-text b{font-size:.92rem}
+.ci-text span{font-size:.78rem;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.s-mail .ci-icon{background:#ea4335}.s-mail:hover{border-color:#ea4335}
+.s-wa .ci-icon{background:#25d366}.s-wa:hover{border-color:#25d366}
+.s-tel .ci-icon{background:#0ea5e9}.s-tel:hover{border-color:#0ea5e9}
+.s-li .ci-icon{background:#0a66c2}.s-li:hover{border-color:#0a66c2}
+.s-gh .ci-icon{background:#24292f}.s-gh:hover{border-color:#6e7681}
+@media (max-width:520px){.contact-item{flex:1 1 100%}}
+
+
+/* terminal */
+.term{background:#0a0f1c;border:1px solid #1f2a44;border-radius:14px;box-shadow:var(--shadow);overflow:hidden;font-size:.8rem;color:#cbd5e1}
+.term-bar{display:flex;gap:6px;padding:11px 14px;background:#111827;border-bottom:1px solid #1f2a44;align-items:center}
+.term-bar i{width:11px;height:11px;border-radius:50%;display:block}
+.term-bar span{margin-left:10px;color:#64748b;font-size:.75rem}
+.term pre{padding:16px 18px;white-space:pre-wrap;line-height:1.75;min-height:300px}
+.t-ok{color:#34d399}.t-dim{color:#64748b}.t-cmd{color:#e2e8f0}.t-hl{color:#93c5fd}.t-vi{color:#c4b5fd}
+.cursor{display:inline-block;width:8px;height:15px;background:#34d399;vertical-align:-2px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:48px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:var(--shadow)}
+.stat b{display:block;font-size:1.85rem;letter-spacing:-.03em;font-weight:800;line-height:1.2}
+.stat span{color:var(--muted);font-size:.86rem}
+
+/* sections */
+section{padding:76px 0}
+section.alt{background:var(--bg-alt);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.eyebrow{color:var(--accent);font-size:.8rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+h2{font-size:clamp(1.7rem,3.5vw,2.25rem);letter-spacing:-.03em;margin:6px 0 10px;font-weight:800}
+.sub{color:var(--muted);max-width:680px;margin-bottom:32px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px;box-shadow:var(--shadow)}
+.card h3{font-size:1.04rem;margin-bottom:10px;display:flex;align-items:center;gap:10px}
+.ico{width:34px;height:34px;border-radius:9px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;flex-shrink:0}
+.ico svg{width:18px;height:18px}
+.ico.vi{background:var(--violet-soft);color:var(--violet)}
+.ico.bl{background:var(--blue-soft);color:var(--blue)}
+.ico.am{background:var(--amber-soft);color:var(--amber)}
+.tags{display:flex;flex-wrap:wrap;gap:7px}
+.tag{font-size:.78rem;padding:4px 10px;border-radius:999px;border:1px solid var(--line);color:var(--muted);background:var(--bg)}
+ul.ticks{list-style:none;color:var(--muted);font-size:.93rem}
+ul.ticks li{position:relative;padding-left:22px;margin-bottom:8px}
+ul.ticks li:before{content:"";position:absolute;left:2px;top:.55em;width:10px;height:6px;border-left:2px solid var(--accent);border-bottom:2px solid var(--accent);transform:rotate(-45deg)}
+
+/* pipeline */
+.pipeline{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;counter-reset:step}
+.step{position:relative;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 16px;box-shadow:var(--shadow);counter-increment:step}
+.step:before{content:"0" counter(step);font-family:"JetBrains Mono",monospace;font-size:.75rem;color:var(--accent);font-weight:600}
+.step h4{font-size:.95rem;margin:6px 0 6px}
+.step p{font-size:.82rem;color:var(--muted)}
+.step .ai{display:inline-block;margin-top:10px;font-size:.7rem;font-weight:600;color:var(--violet);background:var(--violet-soft);padding:2px 8px;border-radius:999px}
+
+/* automation */
+.auto-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.auto-card .head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:12px}
+.auto-card .platform{font-size:.75rem;color:var(--muted);font-weight:500}
+.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0}
+.metric{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.metric b{display:block;font-size:1.2rem;letter-spacing:-.02em}
+.metric span{font-size:.74rem;color:var(--muted)}
+
+/* code tabs */
+.code-wrap{margin-top:22px}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:-1px}
+.tab{font:600 .82rem Inter,sans-serif;padding:9px 14px;border:1px solid var(--line);border-bottom:none;border-radius:10px 10px 0 0;background:var(--bg-alt);color:var(--muted);cursor:pointer}
+.tab[aria-selected="true"]{background:#0a0f1c;color:#e2e8f0;border-color:#1f2a44}
+.code{background:#0a0f1c;border:1px solid #1f2a44;border-radius:0 12px 12px 12px;overflow:auto;box-shadow:var(--shadow)}
+.code pre{padding:18px 20px;font-size:.8rem;line-height:1.7;color:#cbd5e1;min-width:min-content}
+.code .file{display:block;font-size:.72rem;color:#64748b;padding:10px 20px 0}
+.k{color:#c4b5fd}.s{color:#86efac}.c{color:#64748b;font-style:italic}.f{color:#93c5fd}.n{color:#fcd34d}.p{color:#f9a8d4}
+.panel[hidden]{display:none}
+
+/* AI section */
+.ai-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.ai-item{display:grid;grid-template-columns:auto 1fr;gap:12px;padding:14px 0;border-top:1px solid var(--line)}
+.ai-item:first-of-type{border-top:none;padding-top:4px}
+.ai-item .num{font-family:"JetBrains Mono",monospace;font-size:.75rem;color:var(--violet);font-weight:600;padding-top:3px}
+.ai-item h4{font-size:.95rem;margin-bottom:3px}
+.ai-item p{font-size:.88rem;color:var(--muted)}
+.guard{margin-top:16px;display:flex;gap:14px;align-items:flex-start;background:var(--violet-soft);border:1px solid color-mix(in srgb,var(--violet) 30%,transparent);border-radius:14px;padding:16px 18px}
+.guard p{font-size:.92rem;color:var(--text)}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+
+/* timeline */
+.timeline{position:relative;padding-left:28px}
+.timeline:before{content:"";position:absolute;left:7px;top:6px;bottom:6px;width:2px;background:var(--line)}
+.job{position:relative;margin-bottom:20px}
+.job:before{content:"";position:absolute;left:-28px;top:26px;width:16px;height:16px;border-radius:50%;background:var(--bg);border:3px solid var(--accent)}
+.job-head{display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px 16px;align-items:baseline}
+.job h3{font-size:1.15rem;margin:0}
+.job .co{color:var(--accent-text);font-weight:600}
+.when{font-size:.82rem;color:var(--muted)}
+.job-cols{display:grid;grid-template-columns:1fr 1fr;gap:6px 28px;margin-top:16px}
+.job-cols h5{font-size:.74rem;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-bottom:8px}
+
+/* projects */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+.filter{font:600 .82rem Inter,sans-serif;padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--muted);cursor:pointer}
+.filter[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#04241a}
+.filter .count{opacity:.7;margin-left:4px}
+.projects{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.project{display:flex;flex-direction:column}
+.project[hidden]{display:none}
+.project .kind{font-size:.72rem;color:var(--accent-text);font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px}
+.project h3{display:block;margin-bottom:6px;font-size:1.02rem}
+.project .plat{font-size:.78rem;color:var(--muted);margin-bottom:10px}
+.project p{color:var(--muted);font-size:.9rem}
+.project ul.ticks{margin-top:10px;font-size:.86rem}
+.project .tags{margin-top:auto;padding-top:14px}
+.project.featured{border-color:color-mix(in srgb,var(--accent) 45%,var(--line))}
+
+/* domains */
+.domains{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.domain{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.domain b{display:block;font-size:.95rem}
+.domain span{font-size:.8rem;color:var(--muted)}
+
+.edu{display:flex;gap:16px;align-items:center}
+.contact{text-align:center}
+.contact .sub{margin:0 auto 26px}
+.contact .cta{justify-content:center}
+footer{padding:28px 0;text-align:center;color:var(--muted);font-size:.85rem;border-top:1px solid var(--line)}
+
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .6s,transform .6s}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+
+@media (max-width:980px){
+  .hero-grid,.auto-grid,.ai-grid{grid-template-columns:1fr}
+  .pipeline{grid-template-columns:repeat(3,1fr)}
+  .projects,.skills{grid-template-columns:1fr 1fr}
+  .domains{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:640px){
+  .wrap{padding:0 16px}
+  .hero{padding:48px 0 32px}
+  .stats{grid-template-columns:1fr 1fr}
+  .pipeline{grid-template-columns:1fr 1fr}
+  .projects,.skills,.job-cols{grid-template-columns:1fr}
+  .metrics{grid-template-columns:1fr 1fr 1fr}
+  section{padding:56px 0}
+  .stat b{font-size:1.5rem}
+  .term pre{min-height:0}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="#top" class="logo"><span class="dot"></span>Sarfraz Ahmad</a>
+    <ul>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#automation">Automation</a></li>
+      <li><a href="#ai">AI in QA</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="icon-btn" id="themeBtn" aria-label="Toggle dark mode">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+  <!-- HERO -->
+  <div class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <span class="badge"><span class="pulse"></span>Open to QA Automation / SDET roles</span>
+          <h1>I break software<br>so your users <span class="accent">never do.</span></h1>
+          <p class="role">Sarfraz Ahmad · QA Automation Engineer · Fintech · Lahore, Pakistan</p>
+          <p class="lead">3+ years shipping regulated fintech products across web, mobile and back office. I built a <strong>250-test Playwright framework</strong> that cut regression from <strong>3 days to under an hour</strong>, automated the <strong>Yonna Wallet mobile app with Maestro</strong>, and use <strong>AI agents</strong> every day to plan, write and heal tests faster, with a human review on every change.</p>
+          <div class="stack-line">
+            <span>Playwright</span><span>TypeScript</span><span>Maestro</span><span>Appium</span><span>Postman</span><span>SQL</span><span>GitHub Actions</span><span>TestRail</span><span>Jira</span>
+          </div>
+          <div class="cta">
+            <a class="btn primary" href="Sarfraz_Ahmad_QA_Engineer_Resume.pdf" download>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-5-5m5 5l5-5M5 21h14"/></svg>Download CV</a>
+            <a class="btn" href="#projects">See projects</a>
+            <a class="btn" href="#contact">Contact me</a>
+          </div>
+        </div>
+        <div class="term mono" aria-hidden="true">
+          <div class="term-bar"><i style="background:#ef4444"></i><i style="background:#f59e0b"></i><i style="background:#22c55e"></i><span>~/qa-pipeline</span></div>
+          <pre id="termOut"></pre>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div class="stat reveal"><b>3+ yrs</b><span>QA experience, fintech focus</span></div>
+        <div class="stat reveal"><b>13+</b><span>projects tested end to end</span></div>
+        <div class="stat reveal"><b>20+</b><span>production releases signed off</span></div>
+        <div class="stat reveal"><b>7+</b><span>business domains</span></div>
+        <div class="stat reveal"><b>250+</b><span>automated Playwright web tests</span></div>
+        <div class="stat reveal"><b>3d → &lt;1h</b><span>full regression cycle time</span></div>
+        <div class="stat reveal"><b>800+</b><span>test cases maintained in TestRail</span></div>
+        <div class="stat reveal"><b>400+</b><span>defects logged &amp; verified</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROCESS -->
+  <section id="process" class="alt">
+    <div class="wrap">
+      <p class="eyebrow">How I work</p>
+      <h2>From requirement to release sign-off</h2>
+      <p class="sub">A repeatable QA lifecycle I run every two-week sprint. AI speeds up the steps marked below, and I own the judgement on all of them.</p>
+      <div class="pipeline">
+        <div class="step reveal"><h4>Requirement analysis</h4><p>Review user stories and acceptance criteria, flag gaps and ambiguities with BAs before any code is written.</p><span class="ai">AI-assisted</span></div>
+        <div class="step reveal"><h4>Test planning</h4><p>Scope, risks, environments, test data and entry/exit criteria. Map coverage to requirements for traceability.</p><span class="ai">AI-assisted</span></div>
+        <div class="step reveal"><h4>Test design</h4><p>Scenarios and cases in TestRail: positive, negative, boundary and edge cases, organised into suites and runs.</p><span class="ai">AI-assisted</span></div>
+        <div class="step reveal"><h4>Automation</h4><p>Playwright for web, Maestro and Appium for mobile, Postman for APIs, SQL for data. Critical paths first.</p><span class="ai">AI agents</span></div>
+        <div class="step reveal"><h4>Execution &amp; defects</h4><p>Functional, regression, cross-browser and exploratory runs. Clear, reproducible Jira bugs tracked to closure.</p><span class="ai">AI-assisted</span></div>
+        <div class="step reveal"><h4>Release sign-off</h4><p>Smoke on the release candidate, UAT support, go/no-go input and production readiness check.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AUTOMATION -->
+  <section id="automation">
+    <div class="wrap">
+      <p class="eyebrow">Automation engineering</p>
+      <h2>Frameworks I've built</h2>
+      <p class="sub">Two automation stacks in production use: one for the customer web portal and one for the mobile wallet.</p>
+
+      <div class="auto-grid">
+        <div class="card auto-card reveal">
+          <div class="head">
+            <h3 style="margin:0"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span>Web: ACE Money Transfer Portal</h3>
+          </div>
+          <p class="platform">Playwright · TypeScript · Page Object Model · GitHub Actions</p>
+          <div class="metrics">
+            <div class="metric"><b>250+</b><span>test cases</span></div>
+            <div class="metric"><b>~70%</b><span>critical regression automated</span></div>
+            <div class="metric"><b>3</b><span>browser engines</span></div>
+          </div>
+          <ul class="ticks">
+            <li>Covers the full remittance journey: <strong>sign-up, login, KYC upload, beneficiaries, rate selection, transaction and payment</strong>.</li>
+            <li><strong>Page Object Model</strong> with shared fixtures and per-environment config (QA, staging, pre-prod).</li>
+            <li><strong>API-driven test data</strong> setup and cleanup, so UI tests stay fast and independent.</li>
+            <li>Parallel, cross-browser runs on <strong>Chromium, Firefox and WebKit</strong> in CI, with HTML reports, traces, screenshots and video on failure.</li>
+            <li><strong>Playwright Test Agents</strong>: Planner drafts the plan, Generator writes specs, Healer repairs tests after UI changes.</li>
+          </ul>
+        </div>
+
+        <div class="card auto-card reveal">
+          <div class="head">
+            <h3 style="margin:0"><span class="ico vi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M11 18h2"/></svg></span>Mobile: Yonna Wallet App</h3>
+          </div>
+          <p class="platform">Maestro · YAML flows · Appium + WebdriverIO · Android &amp; iOS</p>
+          <div class="metrics">
+            <div class="metric"><b>2</b><span>platforms (Android, iOS)</span></div>
+            <div class="metric"><b>2</b><span>frameworks (Maestro, Appium)</span></div>
+            <div class="metric"><b>E2E</b><span>wallet money flows</span></div>
+          </div>
+          <ul class="ticks">
+            <li>Automated the Yonna Wallet app with <strong>Maestro</strong>: readable YAML flows for <strong>login, wallet balance, top-up and money transfer</strong>.</li>
+            <li>Reusable <strong>sub-flows</strong> (login, navigation) and env variables so one suite runs on both <strong>Android and iOS</strong>.</li>
+            <li>Built-in waits and retries in Maestro remove flaky sleeps, so tests stay stable on real devices and emulators.</li>
+            <li>Set up the <strong>Appium + WebdriverIO</strong> project: structure, device capabilities and a first smoke suite.</li>
+            <li>Mobile automation runs alongside manual checks of the <strong>Agent Portal and Back Office</strong> for full end-to-end coverage.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="code-wrap reveal">
+        <div class="tabs" role="tablist">
+          <button class="tab" role="tab" aria-selected="true" data-panel="p1">Playwright · TypeScript</button>
+          <button class="tab" role="tab" aria-selected="false" data-panel="p2">Maestro · YAML</button>
+          <button class="tab" role="tab" aria-selected="false" data-panel="p3">Postman · API tests</button>
+          <button class="tab" role="tab" aria-selected="false" data-panel="p4">SQL · data validation</button>
+        </div>
+        <div class="code">
+<div class="panel" id="p1"><span class="file mono">tests/transactions/create-transfer.spec.ts</span><pre class="mono"><span class="k">import</span> { test, expect } <span class="k">from</span> <span class="s">'../fixtures'</span>;
+
+test.<span class="f">describe</span>(<span class="s">'Send money'</span>, () =&gt; {
+  test.<span class="f">beforeEach</span>(<span class="k">async</span> ({ api, user }) =&gt; {
+    <span class="c">// seed test data through the API, not the UI</span>
+    <span class="k">await</span> api.<span class="f">createBeneficiary</span>(user.id, { country: <span class="s">'PK'</span>, method: <span class="s">'BANK'</span> });
+  });
+
+  test(<span class="s">'customer can send a bank transfer @smoke @regression'</span>, <span class="k">async</span> ({ sendMoneyPage, receiptPage }) =&gt; {
+    <span class="k">await</span> sendMoneyPage.<span class="f">open</span>();
+    <span class="k">await</span> sendMoneyPage.<span class="f">enterAmount</span>(<span class="n">250</span>, <span class="s">'GBP'</span>);
+    <span class="k">await</span> expect(sendMoneyPage.exchangeRate).<span class="f">toBeVisible</span>();
+    <span class="k">await</span> sendMoneyPage.<span class="f">selectBeneficiary</span>(<span class="n">0</span>);
+    <span class="k">await</span> sendMoneyPage.<span class="f">confirmAndPay</span>();
+
+    <span class="k">await</span> expect(receiptPage.status).<span class="f">toHaveText</span>(<span class="s">'Transaction created'</span>);
+    <span class="k">await</span> expect(receiptPage.reference).<span class="f">toHaveText</span>(<span class="p">/^ACE\d{8}$/</span>);
+  });
+});</pre></div>
+<div class="panel" id="p2" hidden><span class="file mono">flows/wallet/top_up.yaml</span><pre class="mono"><span class="k">appId</span>: <span class="s">${APP_ID}</span>
+<span class="k">tags</span>: [<span class="s">smoke</span>, <span class="s">wallet</span>]
+---
+- <span class="f">runFlow</span>: <span class="s">../common/login.yaml</span>       <span class="c"># reusable sub-flow</span>
+- <span class="f">assertVisible</span>: <span class="s">"Wallet Balance"</span>
+- <span class="f">tapOn</span>: <span class="s">"Top Up"</span>
+- <span class="f">tapOn</span>:
+    <span class="k">id</span>: <span class="s">"amount_input"</span>
+- <span class="f">inputText</span>: <span class="s">"${TOPUP_AMOUNT}"</span>
+- <span class="f">tapOn</span>: <span class="s">"Continue"</span>
+- <span class="f">extendedWaitUntil</span>:             <span class="c"># no hard sleeps</span>
+    <span class="k">visible</span>: <span class="s">"Top up successful"</span>
+    <span class="k">timeout</span>: <span class="n">15000</span>
+- <span class="f">takeScreenshot</span>: <span class="s">topup_success</span></pre></div>
+<div class="panel" id="p3" hidden><span class="file mono">Postman › Transactions › POST /transactions › Tests</span><pre class="mono">pm.<span class="f">test</span>(<span class="s">'status is 201 Created'</span>, () =&gt; {
+  pm.response.to.have.<span class="f">status</span>(<span class="n">201</span>);
+});
+
+pm.<span class="f">test</span>(<span class="s">'response matches schema'</span>, () =&gt; {
+  pm.response.to.have.<span class="f">jsonSchema</span>(pm.collectionVariables.<span class="f">get</span>(<span class="s">'txnSchema'</span>));
+});
+
+pm.<span class="f">test</span>(<span class="s">'payout = amount x rate - fee'</span>, () =&gt; {
+  <span class="k">const</span> b = pm.response.<span class="f">json</span>();
+  pm.<span class="f">expect</span>(b.payoutAmount).to.be.<span class="f">closeTo</span>(b.sendAmount * b.rate - b.fee, <span class="n">0.01</span>);
+});
+
+pm.collectionVariables.<span class="f">set</span>(<span class="s">'txnId'</span>, pm.response.<span class="f">json</span>().id);  <span class="c">// chain to next request</span></pre></div>
+<div class="panel" id="p4" hidden><span class="file mono">queries/verify_transaction.sql</span><pre class="mono"><span class="c">-- confirm the UI/API transaction landed correctly in the database</span>
+<span class="k">SELECT</span> t.reference, t.status, t.send_amount, t.payout_amount,
+       c.kyc_status, b.country
+<span class="k">FROM</span>   transactions t
+<span class="k">JOIN</span>   customers    c <span class="k">ON</span> c.id = t.customer_id
+<span class="k">JOIN</span>   beneficiaries b <span class="k">ON</span> b.id = t.beneficiary_id
+<span class="k">WHERE</span>  t.reference = <span class="s">@txnRef</span>
+  <span class="k">AND</span>  c.kyc_status = <span class="s">'VERIFIED'</span>;
+
+<span class="c">-- catch duplicates created by double-click / retry</span>
+<span class="k">SELECT</span> customer_id, send_amount, <span class="f">COUNT</span>(*) <span class="k">AS</span> dupes
+<span class="k">FROM</span>   transactions
+<span class="k">WHERE</span>  created_at &gt; <span class="f">DATEADD</span>(minute, <span class="n">-5</span>, <span class="f">GETDATE</span>())
+<span class="k">GROUP BY</span> customer_id, send_amount <span class="k">HAVING</span> <span class="f">COUNT</span>(*) &gt; <span class="n">1</span>;</pre></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI -->
+  <section id="ai" class="alt">
+    <div class="wrap">
+      <p class="eyebrow">AI in QA</p>
+      <h2>How I use AI every day</h2>
+      <p class="sub">AI makes me faster. It doesn't make the decisions. Here's where it fits in my manual and automation work.</p>
+      <div class="ai-grid">
+        <div class="card reveal">
+          <h3><span class="ico am"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>In manual testing</h3>
+          <div class="ai-item"><span class="num">01</span><div><h4>Requirement review</h4><p>Ask AI to find gaps, contradictions and missing acceptance criteria in user stories before sprint planning.</p></div></div>
+          <div class="ai-item"><span class="num">02</span><div><h4>Test case drafting</h4><p>Turn a story into a first draft of positive, negative and boundary cases, then refine and add domain knowledge before it goes into TestRail.</p></div></div>
+          <div class="ai-item"><span class="num">03</span><div><h4>Edge cases &amp; test data</h4><p>Generate realistic test data (names, IBANs, ID formats for different countries) and brainstorm edge cases for KYC and limits.</p></div></div>
+          <div class="ai-item"><span class="num">04</span><div><h4>Bug reports</h4><p>Structure clear Jira tickets: steps, expected vs actual, environment and impact, so developers can reproduce on the first try.</p></div></div>
+          <div class="ai-item"><span class="num">05</span><div><h4>Testing AI itself</h4><p>Tested the ACE AI chatbot for accuracy, hallucinations, fallback behaviour and conversation flow across account and corridor queries.</p></div></div>
+        </div>
+        <div class="card reveal">
+          <h3><span class="ico vi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 0 1 4 4v1h1a3 3 0 0 1 3 3v2a3 3 0 0 1-3 3h-1v1a4 4 0 0 1-8 0v-1H7a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h1V6a4 4 0 0 1 4-4z"/><circle cx="10" cy="11" r="1"/><circle cx="14" cy="11" r="1"/></svg></span>In automation</h3>
+          <div class="ai-item"><span class="num">01</span><div><h4>Planner agent</h4><p>Playwright's Planner explores a live flow and drafts a structured test plan, which I review and approve.</p></div></div>
+          <div class="ai-item"><span class="num">02</span><div><h4>Generator agent</h4><p>Turns the approved plan into Playwright spec files that follow our Page Object Model and fixtures.</p></div></div>
+          <div class="ai-item"><span class="num">03</span><div><h4>Healer agent</h4><p>Repairs locators and steps broken by UI changes, so less time goes on maintenance and more on new coverage.</p></div></div>
+          <div class="ai-item"><span class="num">04</span><div><h4>Code &amp; query help</h4><p>Draft Maestro flows, Postman test scripts and complex SQL joins, then debug failing tests from traces faster.</p></div></div>
+          <div class="ai-item"><span class="num">05</span><div><h4>Failure triage</h4><p>Summarise CI failures and spot patterns (flaky test vs real bug vs environment issue) before raising a defect.</p></div></div>
+        </div>
+      </div>
+      <div class="guard reveal">
+        <span class="ico vi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
+        <p><strong>Human in the loop, always.</strong> Every AI-generated plan, test, fix or bug report is reviewed by me before it's merged or filed. No real customer data ever goes into AI tools. In regulated fintech, that's not optional.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="wrap">
+      <p class="eyebrow">Career</p>
+      <h2>Experience</h2>
+      <p class="sub">From intern to owning QA for a UK-regulated money transfer business in under two years.</p>
+      <div class="timeline">
+        <div class="job card reveal">
+          <div class="job-head">
+            <div><h3>SQA Engineer</h3><span class="co">ACE Money Transfer (United Kingdom)</span> <span class="when">· Kharian, Pakistan</span></div>
+            <span class="when mono">Feb 2024 – Present</span>
+          </div>
+          <div class="job-cols">
+            <div>
+              <h5>Automation</h5>
+              <ul class="ticks">
+                <li>Built the <strong>Playwright + TypeScript</strong> framework for the web portal: <strong>~250 tests</strong>, POM, fixtures, CI reports.</li>
+                <li>Automated <strong>~70% of critical regression</strong>: full cycle from <strong>~3 days to &lt;1 hour</strong>, now run on every release candidate.</li>
+                <li>Automated the <strong>Yonna Wallet</strong> mobile app with <strong>Maestro</strong>, and set up the <strong>Appium + WebdriverIO</strong> smoke suite.</li>
+                <li>Use <strong>Playwright Test Agents</strong> (Planner, Generator, Healer) day to day, with human review.</li>
+              </ul>
+            </div>
+            <div>
+              <h5>Quality ownership</h5>
+              <ul class="ticks">
+                <li>Supported <strong>20+ production releases</strong> on two-week sprints with cross-browser and responsive checks.</li>
+                <li>Test <strong>~60 API endpoints</strong> in Postman and verify results with SQL against transaction tables.</li>
+                <li>KYC and sanctions testing with Compliance for <strong>100+ countries</strong>.</li>
+                <li><strong>800+ test cases</strong> in TestRail, <strong>400+ defects</strong> logged and verified in Jira.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="job card reveal">
+          <div class="job-head">
+            <div><h3>Associate SQA Engineer</h3><span class="co">FusionWave (Pvt.) Limited</span> <span class="when">· Lahore, Pakistan</span></div>
+            <span class="when mono">Feb 2023 – Jan 2024</span>
+          </div>
+          <ul class="ticks" style="margin-top:14px">
+            <li>Tested mobile and web apps across <strong>logistics, food delivery, social, public service and HR</strong> domains with senior QA engineers.</li>
+            <li>Functional, UI, regression and integration testing across apps, web apps and admin panels.</li>
+            <li>Wrote and maintained test cases and scenarios, and followed defects through to closure, catching issues early to keep releases on schedule.</li>
+          </ul>
+        </div>
+        <div class="job card reveal">
+          <div class="job-head">
+            <div><h3>SQA Intern</h3><span class="co">1011 Technologies</span> <span class="when">· Rawalpindi, Pakistan</span></div>
+            <span class="when mono">Oct 2022 – Dec 2022</span>
+          </div>
+          <ul class="ticks" style="margin-top:14px">
+            <li>Tested mobile and web applications under senior QA guidance; supported test planning, execution and defect tracking across the QA lifecycle.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="alt">
+    <div class="wrap">
+      <p class="eyebrow">Portfolio</p>
+      <h2>13+ projects across 7+ domains</h2>
+      <p class="sub">Filter by domain. Each card shows the platforms, what I tested and how.</p>
+
+      <div class="filters" role="group" aria-label="Filter projects by domain">
+        <button class="filter" data-f="all" aria-pressed="true">All<span class="count"></span></button>
+        <button class="filter" data-f="fintech" aria-pressed="false">Fintech<span class="count"></span></button>
+        <button class="filter" data-f="ai" aria-pressed="false">AI<span class="count"></span></button>
+        <button class="filter" data-f="logistics" aria-pressed="false">Logistics<span class="count"></span></button>
+        <button class="filter" data-f="ecommerce" aria-pressed="false">E-commerce &amp; Social<span class="count"></span></button>
+        <button class="filter" data-f="public" aria-pressed="false">Public service<span class="count"></span></button>
+        <button class="filter" data-f="enterprise" aria-pressed="false">Enterprise<span class="count"></span></button>
+      </div>
+
+      <div class="projects" id="projectGrid">
+        <article class="card project featured reveal" data-d="fintech">
+          <span class="kind">Fintech · Remittance</span>
+          <h3>ACE Money Transfer</h3>
+          <p class="plat">Mobile app · Web portal · Back office</p>
+          <p>UK-regulated international money transfer platform serving many payout corridors.</p>
+          <ul class="ticks"><li>Playwright framework: 250+ tests, 70% of critical regression</li><li>~60 APIs tested in Postman + SQL checks</li><li>Cross-browser on 3 engines, 20+ releases</li></ul>
+          <div class="tags"><span class="tag">Playwright</span><span class="tag">TypeScript</span><span class="tag">Postman</span><span class="tag">SQL</span></div>
+        </article>
+        <article class="card project featured reveal" data-d="fintech">
+          <span class="kind">Fintech · Digital wallet</span>
+          <h3>Yonna Wallet</h3>
+          <p class="plat">Android &amp; iOS app · Agent Portal · Back Office</p>
+          <p>Mobile wallet with agent network, company and rate configuration.</p>
+          <ul class="ticks"><li>Mobile automation with Maestro YAML flows</li><li>Appium + WebdriverIO smoke suite</li><li>Functional → regression → E2E → UAT sign-off</li></ul>
+          <div class="tags"><span class="tag">Maestro</span><span class="tag">Appium</span><span class="tag">WebdriverIO</span><span class="tag">Mobile</span></div>
+        </article>
+        <article class="card project featured reveal" data-d="fintech">
+          <span class="kind">Fintech · Identity</span>
+          <h3>KYC Verification System</h3>
+          <p class="plat">Web · Mobile · Back office</p>
+          <p>Document verification for 100+ countries: ID cards, EU national IDs, passports, resident permits, driving licences.</p>
+          <ul class="ticks"><li>Scan, auto-fetch and field population accuracy</li><li>Country-specific document rules</li><li>Data checks against the database</li></ul>
+          <div class="tags"><span class="tag">Functional</span><span class="tag">Data validation</span><span class="tag">SQL</span></div>
+        </article>
+        <article class="card project reveal" data-d="fintech">
+          <span class="kind">Fintech · Compliance</span>
+          <h3>Sanctions &amp; Compliance Screening</h3>
+          <p class="plat">Back office · Compliance workflows</p>
+          <p>Worked with the Compliance team on the rules that keep money transfers legal and safe.</p>
+          <ul class="ticks"><li>Sanctions and watchlist screening</li><li>Customer risk profiling and transaction limits</li><li>Hold and release rules</li></ul>
+          <div class="tags"><span class="tag">Business rules</span><span class="tag">Risk</span><span class="tag">UAT</span></div>
+        </article>
+        <article class="card project reveal" data-d="ai fintech">
+          <span class="kind">AI · Conversational</span>
+          <h3>ACE AI Chatbot</h3>
+          <p class="plat">Web · Mobile</p>
+          <p>Customer chatbot answering account, transaction, exchange rate and corridor questions.</p>
+          <ul class="ticks"><li>Answer accuracy and hallucination checks</li><li>Fallback and hand-off behaviour</li><li>Multi-turn conversation flow</li></ul>
+          <div class="tags"><span class="tag">AI testing</span><span class="tag">Exploratory</span></div>
+        </article>
+        <article class="card project reveal" data-d="enterprise">
+          <span class="kind">Enterprise · HR</span>
+          <h3>HRMS Platform</h3>
+          <p class="plat">Web application</p>
+          <p>HR system covering employee records, payroll, leave, announcements, policies, post feeds, forms, reports and inventory.</p>
+          <ul class="ticks"><li>Payroll and leave calculation accuracy</li><li>Role-based access across modules</li><li>Data flow between modules and reports</li></ul>
+          <div class="tags"><span class="tag">Functional</span><span class="tag">Regression</span><span class="tag">Integration</span></div>
+        </article>
+        <article class="card project reveal" data-d="logistics">
+          <span class="kind">Logistics · Delivery</span>
+          <h3>Dring Delivery</h3>
+          <p class="plat">Mobile app · Web app · Admin panel</p>
+          <p>Users and stores book riders for parcel delivery.</p>
+          <ul class="ticks"><li>End-to-end booking across 3 platforms</li><li>Functional, UI and regression testing</li></ul>
+          <div class="tags"><span class="tag">E2E</span><span class="tag">Mobile</span><span class="tag">Web</span></div>
+        </article>
+        <article class="card project reveal" data-d="logistics">
+          <span class="kind">Logistics</span>
+          <h3>Parcel Delivery Management</h3>
+          <p class="plat">Mobile app</p>
+          <p>Individuals and store owners book riders for deliveries to linked recipients.</p>
+          <ul class="ticks"><li>Booking, rider assignment and recipient flows</li><li>Status updates and notifications</li></ul>
+          <div class="tags"><span class="tag">Functional</span><span class="tag">Mobile</span></div>
+        </article>
+        <article class="card project reveal" data-d="ecommerce">
+          <span class="kind">E-commerce · Food</span>
+          <h3>Hoyzee</h3>
+          <p class="plat">Mobile app · Admin panel</p>
+          <p>Food ordering platform: restaurant registration, menu management and ordering.</p>
+          <ul class="ticks"><li>Order lifecycle from menu to delivery</li><li>Admin and restaurant data accuracy</li></ul>
+          <div class="tags"><span class="tag">Functional</span><span class="tag">Integration</span></div>
+        </article>
+        <article class="card project reveal" data-d="ecommerce">
+          <span class="kind">Social</span>
+          <h3>Decider App</h3>
+          <p class="plat">Cross-platform mobile app</p>
+          <p>Social platform for group decision-making through tagged user votes.</p>
+          <ul class="ticks"><li>Vote counting and result accuracy</li><li>Cross-platform consistency</li></ul>
+          <div class="tags"><span class="tag">Functional</span><span class="tag">Cross-platform</span></div>
+        </article>
+        <article class="card project reveal" data-d="ecommerce">
+          <span class="kind">Gaming · Payments</span>
+          <h3>Online Lottery App</h3>
+          <p class="plat">Mobile app · Admin panel</p>
+          <p>Admins upload draws and prizes; users buy tickets to win cash prizes.</p>
+          <ul class="ticks"><li>Ticket purchase and prize allocation accuracy</li><li>Admin draw configuration</li></ul>
+          <div class="tags"><span class="tag">Functional</span><span class="tag">Data accuracy</span></div>
+        </article>
+        <article class="card project reveal" data-d="public">
+          <span class="kind">Public service · Welfare</span>
+          <h3>Citizen Society Website</h3>
+          <p class="plat">Web application</p>
+          <p>Registration for hospital, school, orphan care, wedding support, youth, ration and loan programs.</p>
+          <ul class="ticks"><li>Registration and program allocation</li><li>Tailored reporting</li></ul>
+          <div class="tags"><span class="tag">Functional</span><span class="tag">Reports</span></div>
+        </article>
+        <article class="card project reveal" data-d="public">
+          <span class="kind">Public service · Alerts</span>
+          <h3>Rural Response App</h3>
+          <p class="plat">Mobile app</p>
+          <p>Emergency and informational alerts for users, especially in rural areas.</p>
+          <ul class="ticks"><li>Timely push notification delivery</li><li>Reliability in critical situations</li></ul>
+          <div class="tags"><span class="tag">Notifications</span><span class="tag">Mobile</span></div>
+        </article>
+      </div>
+
+      <h3 style="margin:44px 0 14px;font-size:1.1rem">Domain experience</h3>
+      <div class="domains">
+        <div class="domain reveal"><b>Fintech &amp; Remittance</b><span>Transfers, rates, payouts</span></div>
+        <div class="domain reveal"><b>Digital Wallets</b><span>Top-up, transfers, agents</span></div>
+        <div class="domain reveal"><b>KYC &amp; Compliance</b><span>100+ countries, sanctions</span></div>
+        <div class="domain reveal"><b>AI / Chatbots</b><span>Accuracy, fallbacks</span></div>
+        <div class="domain reveal"><b>Logistics</b><span>Rider booking, tracking</span></div>
+        <div class="domain reveal"><b>E-commerce &amp; Food</b><span>Ordering, menus, admin</span></div>
+        <div class="domain reveal"><b>HR / Enterprise</b><span>Payroll, leave, records</span></div>
+        <div class="domain reveal"><b>Public Service &amp; Social</b><span>Welfare, alerts, voting</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="wrap">
+      <p class="eyebrow">Toolkit</p>
+      <h2>Technical skills</h2>
+      <p class="sub">The tools and techniques I use in production, not just ones I've read about.</p>
+      <div class="skills">
+        <div class="card reveal">
+          <h3><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span>Web Automation</h3>
+          <div class="tags"><span class="tag">Playwright</span><span class="tag">TypeScript</span><span class="tag">JavaScript</span><span class="tag">Page Object Model</span><span class="tag">Fixtures</span><span class="tag">Cross-browser</span><span class="tag">Parallel runs</span><span class="tag">Traces &amp; reports</span></div>
+        </div>
+        <div class="card reveal">
+          <h3><span class="ico vi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M11 18h2"/></svg></span>Mobile Automation</h3>
+          <div class="tags"><span class="tag">Maestro</span><span class="tag">YAML flows</span><span class="tag">Appium</span><span class="tag">WebdriverIO</span><span class="tag">Android</span><span class="tag">iOS</span><span class="tag">Emulators &amp; real devices</span></div>
+        </div>
+        <div class="card reveal">
+          <h3><span class="ico vi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 5.8L20 10l-5 3.6L16.5 20 12 16.6 7.5 20 9 13.6 4 10l6.1-1.2z"/></svg></span>AI-Assisted Testing</h3>
+          <div class="tags"><span class="tag">Playwright Test Agents</span><span class="tag">Planner</span><span class="tag">Generator</span><span class="tag">Healer</span><span class="tag">LLM test design</span><span class="tag">Chatbot testing</span></div>
+        </div>
+        <div class="card reveal">
+          <h3><span class="ico bl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg></span>API Testing</h3>
+          <div class="tags"><span class="tag">Postman</span><span class="tag">REST</span><span class="tag">Collections &amp; environments</span><span class="tag">Schema validation</span><span class="tag">Auth testing</span><span class="tag">Negative &amp; boundary</span></div>
+        </div>
+        <div class="card reveal">
+          <h3><span class="ico bl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"/></svg></span>Database Testing</h3>
+          <div class="tags"><span class="tag">SQL</span><span class="tag">Joins</span><span class="tag">Subqueries</span><span class="tag">Aggregations</span><span class="tag">MySQL</span><span class="tag">SQL Server</span><span class="tag">Backend validation</span></div>
+        </div>
+        <div class="card reveal">
+          <h3><span class="ico am"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>Manual Testing</h3>
+          <div class="tags"><span class="tag">Functional</span><span class="tag">Regression</span><span class="tag">Integration</span><span class="tag">Exploratory</span><span class="tag">Smoke &amp; Sanity</span><span class="tag">UAT</span><span class="tag">E2E</span></div>
+        </div>
+        <div class="card reveal">
+          <h3><span class="ico am"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M8 9h8M8 13h8M8 17h5"/></svg></span>Test Management</h3>
+          <div class="tags"><span class="tag">TestRail</span><span class="tag">Jira</span><span class="tag">Test plans</span><span class="tag">Traceability</span><span class="tag">Defect lifecycle</span></div>
+        </div>
+        <div class="card reveal">
+          <h3><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="12" r="2"/><path d="M6 8v8M8 6h4a4 4 0 0 1 4 4v0"/></svg></span>CI/CD &amp; Tools</h3>
+          <div class="tags"><span class="tag">Git</span><span class="tag">GitHub</span><span class="tag">GitHub Actions</span><span class="tag">Chrome DevTools</span></div>
+        </div>
+        <div class="card reveal">
+          <h3><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/></svg></span>Methodologies</h3>
+          <div class="tags"><span class="tag">Agile</span><span class="tag">Scrum</span><span class="tag">SDLC</span><span class="tag">STLC</span><span class="tag">Risk-based testing</span><span class="tag">Shift-left</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section class="alt" style="padding:52px 0">
+    <div class="wrap">
+      <p class="eyebrow">Education</p>
+      <div class="card edu reveal" style="margin-top:14px">
+        <span class="ico" style="width:46px;height:46px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg></span>
+        <div>
+          <h3 style="font-size:1.1rem;margin:0">BS Software Engineering</h3>
+          <p style="color:var(--muted)">International Islamic University, Islamabad</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <p class="eyebrow">Contact</p>
+      <h2>Need someone who ships quality, fast?</h2>
+      <p class="sub">I'm open to QA Automation Engineer and SDET roles, remote or on-site. I can bring a working framework, AI-assisted workflows and fintech domain knowledge from day one.</p>
+      <div class="contact-list">
+        <a class="contact-item s-mail" href="mailto:sarfrazlashari907@gmail.com">
+          <span class="ci-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg></span>
+          <span class="ci-text"><b>Email</b><span>sarfrazlashari907@gmail.com</span></span>
+        </a>
+        <a class="contact-item s-wa" href="https://wa.me/923443637500" target="_blank" rel="noopener">
+          <span class="ci-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35zM12.05 21.8h-.01a9.8 9.8 0 0 1-5-1.37l-.36-.21-3.72.98 1-3.63-.24-.37a9.8 9.8 0 0 1-1.5-5.22c0-5.42 4.41-9.83 9.84-9.83a9.77 9.77 0 0 1 6.95 2.88 9.77 9.77 0 0 1 2.88 6.96c0 5.42-4.41 9.83-9.84 9.83zm8.37-18.2A11.75 11.75 0 0 0 12.05.13C5.53.13.22 5.44.22 11.97c0 2.09.55 4.12 1.58 5.92L.12 24l6.27-1.64a11.83 11.83 0 0 0 5.66 1.44h.01c6.52 0 11.83-5.31 11.83-11.84 0-3.16-1.23-6.13-3.47-8.37z"/></svg></span>
+          <span class="ci-text"><b>WhatsApp</b><span>+92 344 3637500</span></span>
+        </a>
+        <a class="contact-item s-tel" href="tel:+923443637500">
+          <span class="ci-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></span>
+          <span class="ci-text"><b>Call</b><span>+92 344 3637500</span></span>
+        </a>
+        <a class="contact-item s-li" href="https://www.linkedin.com/in/sarfraz--sqa/" target="_blank" rel="noopener">
+          <span class="ci-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></span>
+          <span class="ci-text"><b>LinkedIn</b><span>in/sarfraz--sqa</span></span>
+        </a>
+        <a class="contact-item s-gh" href="https://github.com/sarfraz907" target="_blank" rel="noopener">
+          <span class="ci-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6 0-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.6 18.3 5 18.3 5c.7 1.6.2 2.8.1 3.2.8.8 1.3 1.9 1.3 3.1 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3z"/></svg></span>
+          <span class="ci-text"><b>GitHub</b><span>sarfraz907</span></span>
+        </a>
+      </div>
+      <div class="cta" style="margin-top:26px">
+        <a class="btn primary" href="Sarfraz_Ahmad_QA_Engineer_Resume.pdf" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-5-5m5 5l5-5M5 21h14"/></svg>Download CV</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    © <span id="yr"></span> Sarfraz Ahmad · <span class="mono">all tests passing ✓</span>
+  </div>
+</footer>
+
+<script>
+// theme toggle
+(function(){
+  var root=document.documentElement;
+  try{var saved=localStorage.getItem('theme');if(saved)root.setAttribute('data-theme',saved);}catch(e){}
+  document.getElementById('themeBtn').addEventListener('click',function(){
+    var cur=root.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
+    var next=cur==='dark'?'light':'dark';
+    root.setAttribute('data-theme',next);
+    try{localStorage.setItem('theme',next);}catch(e){}
+  });
+})();
+
+document.getElementById('yr').textContent=new Date().getFullYear();
+
+
+// terminal animation
+(function(){
+  var lines=[
+    ['<span class="t-dim">$</span> <span class="t-cmd">npx playwright test --project=all</span>',500],
+    ['<span class="t-dim">Running 250 tests using 6 workers</span>',350],
+    ['  <span class="t-ok">✓</span> auth · kyc · beneficiary <span class="t-dim">(91)</span>',200],
+    ['  <span class="t-ok">✓</span> transactions · payment <span class="t-dim">(159)</span>',200],
+    ['  <span class="t-ok">250 passed</span> <span class="t-hl">chromium · firefox · webkit</span>',500],
+    ['',100],
+    ['<span class="t-dim">$</span> <span class="t-cmd">maestro test flows/wallet/</span>',500],
+    ['  <span class="t-ok">✓</span> login.yaml   <span class="t-ok">✓</span> balance.yaml',200],
+    ['  <span class="t-ok">✓</span> top_up.yaml  <span class="t-ok">✓</span> transfer.yaml',200],
+    ['  <span class="t-ok">All flows passed</span> <span class="t-vi">android · ios</span>',500],
+    ['',100],
+    ['<span class="t-dim">$</span> <span class="t-cmd">release-check v4.2.0</span>',400],
+    ['  <span class="t-ok">✓ READY FOR PRODUCTION</span>',300],
+    ['<span class="t-dim">$</span> <span class="cursor"></span>',0]
+  ];
+  var out=document.getElementById('termOut');
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches){out.innerHTML=lines.map(function(l){return l[0]}).join('\n');return;}
+  var i=0,html='';
+  (function next(){
+    if(i>=lines.length)return;
+    html+=(i?'\n':'')+lines[i][0];out.innerHTML=html;
+    setTimeout(next,lines[i++][1]);
+  })();
+})();
+
+// code tabs
+(function(){
+  var tabs=document.querySelectorAll('.tab');
+  tabs.forEach(function(t){
+    t.addEventListener('click',function(){
+      tabs.forEach(function(x){x.setAttribute('aria-selected','false');document.getElementById(x.dataset.panel).hidden=true;});
+      t.setAttribute('aria-selected','true');document.getElementById(t.dataset.panel).hidden=false;
+    });
+  });
+})();
+
+// project filters
+(function(){
+  var btns=document.querySelectorAll('.filter');
+  var cards=document.querySelectorAll('#projectGrid .project');
+  btns.forEach(function(b){
+    var f=b.dataset.f;
+    var n=f==='all'?cards.length:Array.prototype.filter.call(cards,function(c){return c.dataset.d.split(' ').indexOf(f)>-1}).length;
+    b.querySelector('.count').textContent=n;
+    b.addEventListener('click',function(){
+      btns.forEach(function(x){x.setAttribute('aria-pressed','false')});
+      b.setAttribute('aria-pressed','true');
+      cards.forEach(function(c){
+        c.hidden=!(f==='all'||c.dataset.d.split(' ').indexOf(f)>-1);
+        if(!c.hidden)c.classList.add('in');
+      });
+    });
+  });
+})();
+
+// scroll reveal
+(function(){
+  var els=document.querySelectorAll('.reveal');
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return;}
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});
+  },{threshold:.1});
+  els.forEach(function(e){io.observe(e)});
+})();
+</script>
+</body>
+</html>
